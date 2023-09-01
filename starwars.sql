@@ -118,11 +118,26 @@ Values
 (4,9,'Locate Jakku Artifact','2023-01-10','2023-01-12','Completed','Recovered ancient artifact from desert ruins'),
 (5,10,'Establish Lothal Rebel Cell','2023-06-01','2023-06-03','Ongoing','Training local recruits, expanding rebel presence');
 
+-- QUERIES
 
-SELECT * FROM Planets;
+-- All info on all Rebel Agents
 SELECT * FROM RebelAgents;
-SELECT * FROM Starships;
-SELECT * FROM starship_captains;
-JOIN Starships ON starship_captains.ship_id = Starships.ship_id;
-JOIN RebelAgents ON starship_captains.captain = RebelAgents.agent_id;
-SELECT * FROM Missions;
+
+--Names and Classes of all starships
+
+SELECT ship_name, class FROM Starships;
+
+--A Summary of all completed missions including the objectives and mission status
+
+SELECT mission_id, objective, mission_status FROM Missions where mission_status = 'Completed';
+
+--Names of Planets affiliated with the Empire
+
+SELECT planet_name FROM Planets WHERE affiliation = 'Empire'
+
+--How many active missions there are?
+
+
+-- SELECT * FROM starship_captains;
+-- JOIN Starships ON starship_captains.ship_id = Starships.ship_id;
+-- JOIN RebelAgents ON starship_captains.captain = RebelAgents.agent_id;
